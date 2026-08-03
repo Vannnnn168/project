@@ -1,36 +1,114 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SX 25</title>
-    <link rel="icon" href="img/img.jpg">
-    <link rel='stylesheet' href='main.css'>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body{
+            margin-left:150px;
+            font-family:Arial, sans-serif;
+        }
+
+        a{
+            color:black;
+            text-decoration:none;
+        }
+
+        a:hover{
+            color:blue;
+        }
+    </style>
 </head>
-<body leftmargin="50" text="orange">
-    <h1 align="center"><u>SX 25</u></h1>
-    <marquee bgcolor="pink" behavior="scroll" width ="50%" direction="right" >
-        <h3>Name: Yet Nivann</h3>
-    </marquee><marquee bgcolor="pink" behavior="scroll" width ="50%">
-        <h3>Name: Yet Nivann</h3>
-    </marquee>
-    <hr size="5">
-    <p align="justify">
-        <img src="img/images.jpg" class="para-img" width="60" align="left" border="1">
-        <b>Lorem</b> ipsum dolor sit amet consectetur adipisicing elit. Rem aperiam a voluptatem asperiores veniam earum tempore nam reiciendis non, 
-        alias inventore quasi maiores! Sint aut ducimus labore nostrum
-         quisquam ea!</p>
-    <hr size="5">
-    <p align="justify">
-        <img src="img/images.jpg" class="para-img" width="60" align="right" border="1">
-        <b>Lorem</b> ipsum dolor sit, amet consectetur adipisicing elit. Eaque nemo illum, cupiditate quas expedita ipsum voluptatem
-         impedit debitis blanditiis! Nesciunt reprehenderit dolores sapiente deserunt mollitia
-          tenetur <u>alias incidunt </u><mark>quia error?</mark></p>
-    <hr size="5">
-    <p>
-        <img src="img/images.jpg" class="para-img" width="60" align="left" border="1">
-        <b>Lorem</b> ipsum dolor sit amet consectetur adipisicing elit. Iste alias sequi quia facere vero sapiente voluptate laborum iusto fugiat, harum nam error velit provident
-         facilis ipsam optio natus tempora? Obcaecati!</p>
-    <hr size="5">
+
+<body>
+    <iframe
+        name="a"
+        width="100%"
+        height="500"
+        src="https://www.youtube.com/embed/HxFAcsQGww8"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+    <a href="#mis"><h3>Go to MIS</h3></a>
+    <a href="#bit"><h3>Go to BIT</h3></a>
+    <button onclick="document.getElementById('qr').style.display='block'">
+    Show QR
+    </button>
+
+    <div id="qr" style="display:none;margin-top:20px;">
+        <img src="img/qr.png" width="200">
+    </div>
+
+    <img src="img/images (1).jpg" usemap="#a">
+    <map name="a">
+        <area href="https://www.fifa.com/" title="FiFa" target="_blank" shape="poly" 
+        coords="157,86,170,63,189,41,210,33,235,25,250,27,267,25,284,31,310,42,323,58,334,75,352,107,351,135,352,162,345,174,342,196,336,235,330,277,324,316,317,351,306,395,295,440,298,455,309,482,323,508,337,541,316,551,281,552,240,554,181,552,154,547,167,518,192,459,191,424,176,337,162,249,154,194,140,148,144,126">
+    </map>
+
+
+    <h2>My Social Media Link :
+        <a href="https://www.facebook.com" target="_blank">
+        <i class="fab fa-facebook"></i> Facebook
+
+        <a href="https://t.me/Nyvann" target="_blank">
+        <i class="fab fa-telegram"></i> Telegram
+
+        <a href="https://www.tiktok.com" target="_blank">
+        <i class="fab fa-tiktok"></i> Tik Tok
+    </h2>
+
+    <h1>Using Mixed OL & UL</h1>
+
+    <ol>
+        <li id="mis">
+            <a href="https://t.me/Nyvann" target="_blank">
+                <i class="fab fa-telegram"></i> MIS
+            </a>
+
+            <ul>
+                <li>Web
+                    <ul>
+                        <li>Web</li>
+                        <li>Mobile</li>
+                        <li>UX/UI</li>
+                    </ul>
+                </li>
+                <li>Mobile</li>
+                <li>UX/UI</li>
+            </ul>
+        </li>
+
+        <li id="bit">
+            <a href="https://t.me/Nyvann" target="_blank">
+                <i class="fab fa-telegram"></i> BIT
+            </a>
+
+            <ul>
+                <li>Digital</li>
+                <li>Accounting</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h1>Using Ordered List</h1>
+
+    <ol type="A">
+        <li>Heading 1</li>
+        <li>Heading 2</li>
+    </ol>
+
+    <h1>Using Unordered List</h1>
+
+    <ul style="list-style-type:circle;">
+        <li>Heading 1</li>
+        <li>Heading 2</li>
+    </ul>
+
 </body>
 </html>
