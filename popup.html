@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<title>Hehe</title>
+<link rel="icon" type="image/png" href="icons/16.png">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    width: 380px; margin: 0; padding: 20px;
+    font: 12.55px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #f1f5f9; background: radial-gradient(circle at top right, #1e1b4b 0%, #090d16 60%);
+  }
+  .header-container { text-align: center; margin-bottom: 16px; }
+  h1 { 
+    font-size: 18px; margin: 0 0 6px; font-weight: 800; color: #ffffff;
+    display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background-color: rgba(255,255,255,0.03);
+  }
+  .sub { font-size: 11.5px; color: #94a3b8; line-height: 1.4; padding: 0 10px; }
+  .box {
+    border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 14px; margin-bottom: 14px;
+    background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(16px);
+  }
+  .lbl { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; color: #64748b; margin: 0 4px 10px; }
+  
+  .machine-id-row { font-size: 11px; color: #94a3b8; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+  .machine-id-row span { font-family: monospace; color: #cbd5e1; background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; user-select: all; }
+
+  .key-input-row { display: flex; gap: 8px; }
+  .key-input-row input {
+    flex: 1; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+    color: #fff; padding: 8px 10px; font-size: 12px; font-family: monospace; outline: none;
+  }
+  .key-input-row input:focus { border-color: #818cf8; }
+  .key-input-row button {
+    background: #6366f1; color: #fff; border: none; border-radius: 8px; padding: 0 14px; font-weight: 600; cursor: pointer;
+  }
+
+  label.row {
+    display: flex; align-items: center; gap: 12px; padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 10px; cursor: pointer; background: rgba(255, 255, 255, 0.015);
+  }
+  label.row + label.row { margin-top: 5px; }
+  label.row:has(input:checked) { background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.5); color: #e0e7ff; }
+  label.row input { appearance: none; width: 16px; height: 16px; border: 2px solid #475569; border-radius: 50%; outline: none; display: grid; place-content: center; }
+  label.row input:checked { border-color: #818cf8; background-color: #6366f1; }
+  label.row input:checked::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #fff; }
+
+  .t { flex: 1; }
+  .tag { font-size: 9.5px; font-weight: 600; padding: 0 8px; border-radius: 5px; color: #94a3b8; background: rgba(255,255,255,0.05); }
+
+  #state { 
+    font-size: 11.5px; padding: 11px 14px; border-radius: 12px; 
+    background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.06); color: #cbd5e1;
+  }
+  #state.ok { background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25); color: #34d399; }
+  #state.error { background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.25); color: #f87171; }
+  
+  .foot { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 11px; color: #64748b; display: flex; justify-content: space-between; }
+  .locked { opacity: 0.4; pointer-events: none; filter: grayscale(100%); }
+</style>
+</head>
+<body>
+  <div class="header-container">
+    <h1>Hehe</h1>
+    <div class="sub">Send your Machine ID to get your locked key</div>
+  </div>
+
+  <div class="box">
+    <div class="lbl">License Activation</div>
+    <div class="machine-id-row">
+      Machine ID: <span id="machine-id-display">Reading...</span>
+    </div>
+    <div class="key-input-row">
+      <input type="text" id="license-key-input" placeholder="XXXX-XXXX-XXXX-XXXX" autocomplete="off">
+      <button id="activate-btn">Activate</button>
+    </div>
+  </div>
+
+  <div class="box locked" id="control-box">
+    <div class="lbl">Injection Layer</div>
+    <label class="row"><input type="radio" name="layer" value="off"><span class="t">Disable Injection</span></label>
+    <label class="row"><input type="radio" name="layer" value="12m"><span class="t">12 Months</span><span class="tag">Initial</span></label>
+    <label class="row"><input type="radio" name="layer" value="6m_ss"><span class="t">6 Months (SS)</span><span class="tag">Stack</span></label>
+    <label class="row"><input type="radio" name="layer" value="6m"><span class="t">6 Months</span><span class="tag">Stack</span></label>
+    <label class="row"><input type="radio" name="layer" value="6m_2"><span class="t">6 Months (Alt)</span><span class="tag">Backup</span></label>
+  </div>
+
+  <div id="state" class="error">License required</div>
+  
+  <div class="foot">
+    <span>Personal Tool</span>
+    <a href="https://t.me/Nyvann" target="_blank" style="color:#818cf8; text-decoration:none;">t.me/Nyvann</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
